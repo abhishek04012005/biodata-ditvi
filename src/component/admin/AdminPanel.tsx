@@ -255,10 +255,10 @@ const AdminPanel = () => {
                             disabled={updateLoadingId === item.id}
                           >
                             <option value="New">New</option>
-                            <option value="In Progress">Spam</option>
-                            <option value="Resolved">No Resposne</option>
-                            <option value="Closed">Progress</option>
-                            <option value="Complete">Completed</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Complete">Complete</option>
                           </select>
                         </td>
                       </tr>
