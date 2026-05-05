@@ -1,0 +1,47 @@
+import { Phone, Email, LocationOn } from "@mui/icons-material";
+
+interface QuickLink {
+  id: string;
+  label: string;
+  path: string;
+}
+
+interface ContactInfo {
+  id: string;
+  icon: React.ElementType;
+  content: string;
+  href?: string;
+  isText?: boolean;
+}
+
+const footerQuickLinks: QuickLink[] = [
+  { id: "hero", label: "Home", path: "/" },
+  { id: "whyus", label: "Why Us", path: "/whyus" },
+  { id: "how-we-work", label: "How We Work", path: "/how-we-work" },
+  { id: "biodata", label: "Biodata", path: "/biodata" },
+  { id: "blog", label: "Blog", path: "/blog" },
+];
+
+const contactInfo: ContactInfo[] = [
+  {
+    id: "phone",
+    icon: Phone,
+    content: "+91 9285248504",
+    href: "tel:+919285248504",
+  },
+  {
+    id: "email",
+    icon: Email,
+    content: "care@ditvi.org",
+    href: "mailto:care@ditvi.org",
+  },
+  {
+    id: "location",
+    icon: LocationOn,
+    content: "Patna, Bihar, 800001",
+    isText: true,
+  },
+];
+
+export { footerQuickLinks, contactInfo };
+export type { QuickLink, ContactInfo };

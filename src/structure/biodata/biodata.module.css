@@ -1,0 +1,285 @@
+@keyframes biodataSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardsSlider {
+  position: relative;
+  z-index: 1;
+}
+
+.sliderItem {
+  padding: 0.5rem;
+}
+
+.biodataCard {
+  position: relative;
+  width: clamp(220px, 25vw, 280px);
+  margin: 0 auto;
+  cursor: pointer;
+  perspective: 1000px;
+  opacity: 0;
+  animation: biodataSlideUp 0.6s ease-out forwards;
+  margin-bottom: 3rem;
+  border-radius: 20px;
+}
+
+.biodataCardInner {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.biodataCardHovered .biodataCardInner {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.biodataCardMedia {
+  position: relative;
+  overflow: hidden;
+}
+
+.biodataCardImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.biodataCardPremium {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.biodataCardHovered .biodataCardPremium {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.biodataCardDiscount {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.biodataDiscountValue {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.biodataDiscountLabel {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+
+.biodataCardContent {
+  padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+}
+
+.biodataContentTitle {
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+.biodataCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.biodataCardHovered .biodataCardOverlay {
+  opacity: 1;
+}
+
+.biodataOverlayContent {
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.biodataModelLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.biodataModelName {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.biodataRating {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.biodataStar {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.biodataPriceSection {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.biodataPriceWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.biodataPriceOriginal {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.biodataPriceFinal {
+  color: var(--secondary-color);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.biodataButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButtonCard {
+  font-size: 0.8rem;
+  padding: 0.6rem;
+  width: 100%;
+}
+
+.cardReadmoreButton {
+  margin-top: 2rem;
+  float: right;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.customArrow {
+  color: white !important;
+  background: var(--gradient-1) !important;
+  border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+  .biodataCard {
+    width: 260px;
+  }
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .biodataCard {
+    width: 240px;
+  }
+  .biodataModelName {
+    font-size: 1.3rem;
+  }
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .customArrow {
+    z-index: 10;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .biodataSection {
+    padding: 4rem 0;
+  }
+  .biodataButtons {
+    flex-direction: column;
+  }
+  .biodataMore {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .biodataMoreBtn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .biodataCard {
+    width: 270px;
+  }
+  .biodataCardPremium,
+  .biodataCardDiscount {
+    transform: scale(0.9);
+  }
+  .biodataContentTitle {
+    font-size: 0.9rem;
+  }
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,26 @@
+import React from 'react';
+import type { Metadata } from 'next';
+import blogPosts from '../../data/blog';
+import BlogStructure from '@/structure/blogcard/BlogCards';
+
+export const metadata: Metadata = {
+  title: 'Latest Blog Articles | Biodata & Biodata Writing Tips',
+  description:
+    'Explore expert tips, templates, and how-to guides for creating effective biodata, biodatas, and traditional profiles.',
+};
+
+const BlogPage: React.FC = () => {
+  return (
+    <BlogStructure
+      title="Our Blog"
+      subtitle="Explore all our articles and insights"
+      blogPosts={blogPosts.map(post => ({
+        ...post,
+        image: typeof post.image === "string" ? post.image : (post.image.src ?? "")
+      }))}
+      showBackButton={true}
+    />
+  );
+};
+
+export default BlogPage;

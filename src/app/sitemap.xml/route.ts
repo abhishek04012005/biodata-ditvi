@@ -1,0 +1,51 @@
+import { NextResponse } from "next/server";
+import blogPosts from "@/data/blog";
+import resumeList from "@/data/biodata";
+import { biodataSeoTargets } from "@/lib/seo";
+import { createSlug } from "@/lib/slug";
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://biodata.ditvi.org";
+
+const buildUrls = () => {
+  const urls = [
+    `${baseUrl}/`,
+    `${baseUrl}/biodata`,
+    `${baseUrl}/blog`,
+    `${baseUrl}/confirmation`,
+  ];
+
+  const biodataIds = resumeList.map((resume) => `biodata/${resume.slug}`);
+
+  biodataIds.forEach((biodataId) => {
+    biodataSeoTargets.forEach((target) => {
+      const targetSlug = createSlug(target);
+      urls.push(`${baseUrl}/${biodataId}/${targetSlug}`);
+    });
+  });
+
+  blogPosts.forEach((post) => {
+    const slug = createSlug(post.title);
+    urls.push(`${baseUrl}/blog/${slug}`);
+  });
+
+  return urls;
+};
+
+export function GET() {
+  const urls = buildUrls();
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+    .map(
+      (url) => `  <url>\n    <loc>${url}</loc>\n  </url>`
+    )
+    .join("\n")}
+</urlset>`;
+
+  return new NextResponse(xml, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
+}
