@@ -19,58 +19,69 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://biodata.ditvi.org";
 
 export const metadata: Metadata = {
   title:
-    "Ditvi Biodata | AI-Enhanced Biodata Templates & Service Biodata",
-  
+    "Ditvi Biodata | Marriage Biodata Maker & Professional Biodata Templates",
+
   description:
-    "Create traditional biodata and service biodata templates with AI. Build, customize, and download polished biodata instantly with Ditvi Biodata.",
-  
+    "Create beautiful marriage biodata, traditional biodata, and professional service biodata templates with AI. Customize and download biodata instantly with Ditvi Biodata.",
+
   metadataBase: new URL(baseUrl),
 
   keywords: [
-    "AI biodata builder",
-    "service biodata",
-    "biodata template online",
-    "traditional biodata templates",
-    "modern biodata formats",
+    "biodata maker",
+    "marriage biodata",
     "marriage biodata maker",
-    "biodata for marriage format",
-    "service biodata form",
-    "traditional biodata India",
-    "biodata builder with AI",
-    "best biodata templates",
+    "biodata for marriage",
+    "professional biodata",
+    "service biodata",
+    "traditional biodata",
+    "biodata templates",
+    "marriage profile template",
+    "AI biodata builder",
+    "biodata format",
+    "Indian biodata templates",
+    "custom biodata design",
+    "online biodata creator",
+    "modern biodata templates",
   ],
 
   authors: [{ name: "Ditvi Biodata Team" }],
   creator: "Ditvi Biodata",
   publisher: "Ditvi Biodata",
 
-  category: "Career & Jobs",
+  category: "Marriage & Professional Biodata",
 
   openGraph: {
     title:
-      "AI Biodata Builder | Service Biodata & Traditional Templates",
+      "Ditvi Biodata | AI Marriage Biodata & Professional Templates",
+
     description:
-      "Build traditional service biodata and marriage biodata templates with AI. Fast, customizable, and recruiter-ready designs for biodata needs.",
+      "Design marriage biodata, traditional biodata, and professional biodata templates instantly using AI-powered customization tools.",
+
     type: "website",
     url: baseUrl,
     siteName: "Ditvi Biodata",
+
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI ATS Biodata Builder - Ditvi Biodata",
+        alt: "Ditvi Biodata - Marriage Biodata Maker",
       },
     ],
+
     locale: "en_IN",
   },
 
   twitter: {
     card: "summary_large_image",
+
     title:
-      "AI Biodata Builder | Service Biodata Templates",
+      "Ditvi Biodata | Marriage Biodata Maker",
+
     description:
-      "Create service biodata and marriage biodata quickly using AI-powered biodata templates.",
+      "Create stunning marriage biodata and professional biodata templates online using AI-powered tools.",
+
     images: ["/og-image.png"],
     creator: "@ditvibiodata",
   },
@@ -79,6 +90,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -89,7 +101,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    // google: "U61z9WvB238RUEavCgIuOpCpDLFPVOMv2i-Ax3ACxPI",
+    // google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 
   icons: {
@@ -98,6 +110,7 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32" },
       { url: "/favicon-16x16.png", sizes: "16x16" },
     ],
+
     apple: "/apple-touch-icon.png",
   },
 
