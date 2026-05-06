@@ -57,7 +57,7 @@ const AllBiodata: React.FC = () => {
         <BiodataCard
           title="Biodata Templates"
           subtitle="Discover our curated biodata designs for traditional profiles"
-          resumeDetails={biodataList}
+          biodataDetails={biodataList}
           isSlider={false}
           showButton={true}
         />

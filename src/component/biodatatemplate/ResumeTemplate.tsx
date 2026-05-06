@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import EnquiryPopup from '@/structure/enquiryPopup/EnquiryPopup';
 import type { SeoData } from '../../data/seo';
-import styles from './ResumeTemplate.module.css';
+import styles from './BiodataTemplate.module.css';
 
 interface Props {
   seoData: SeoData;
 }
 
-export default function ResumeTemplate({ seoData }: Props) {
+export default function BiodataTemplate({ seoData }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

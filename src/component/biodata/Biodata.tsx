@@ -1,6 +1,6 @@
 import React, { JSX } from "react";
 import BiodataCard from "../../structure/biodata/biodata";
-import resumeList from "../../data/biodata";
+import biodataList from "../../data/biodata";
 
 const Biodata: React.FC = (): JSX.Element => {
   return (
@@ -8,7 +8,7 @@ const Biodata: React.FC = (): JSX.Element => {
       <BiodataCard
         title="Traditional Biodata Templates"
         subtitle="Traditionally structured biodata templates for modern service and marriage presentations"
-        resumeDetails={resumeList}
+        biodataDetails={biodataList}
         isSlider={true}
       />
     </div>

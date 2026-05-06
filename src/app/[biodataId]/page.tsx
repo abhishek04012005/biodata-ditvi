@@ -1,6 +1,6 @@
 import BiodataDetail from "@/structure/biodatadetail/BiodataDetail";
 import { Metadata } from "next";
-import resumeList from "@/data/biodata";
+import biodataList from "@/data/biodata";
 import { getBiodataDetailMetadata } from "@/lib/seo";
 import { biodataSeoData } from "@/data/seo";
 
@@ -16,7 +16,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { biodataId } = await params;
 
-  const biodata = resumeList.find(
+  const biodata = biodataList.find(
     (item) => item.slug === biodataId
   );
 
@@ -57,7 +57,7 @@ export default async function BiodataPage(
 ) {
   const { biodataId } = await params;
 
-  const biodata = resumeList.find(
+  const biodata = biodataList.find(
     (item) => item.slug === biodataId
   );
 

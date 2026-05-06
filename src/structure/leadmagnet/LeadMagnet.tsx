@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import EnquiryPopup from "../enquiryPopup/EnquiryPopup";
 
-interface SampleResumeDetails {
+interface SampleBiodataDetails {
   modelNumber: string;
   language: string;
   type: string;
@@ -13,7 +13,7 @@ const LeadMagnet: React.FC = () => {
   const [showGetNow, setShowGetNow] = useState<boolean>(true);
   const [showLeadMagnet, setShowLeadMagnet] = useState<boolean>(true);
 
-  const sampleResumeDetails: SampleResumeDetails = {
+  const sampleBiodataDetails: SampleBiodataDetails = {
     modelNumber: "0000",
     language: "English",
     type: "biodata",
@@ -24,7 +24,7 @@ const LeadMagnet: React.FC = () => {
     <>
       {showLeadMagnet && (
         <EnquiryPopup
-          heading="Enquiry Now for Biodata Templates"
+          heading="Enquiry Now for New Biodata"
           paragraph="Please fill the details"
           buttonTitle="Submit"
           isOpen={showGetNow}
@@ -32,7 +32,7 @@ const LeadMagnet: React.FC = () => {
             setShowGetNow(false);
             setShowLeadMagnet(false);
           }}
-          modelDetails={sampleResumeDetails}
+          modelDetails={sampleBiodataDetails}
           isLeadMagnet={true}
         />
       )}

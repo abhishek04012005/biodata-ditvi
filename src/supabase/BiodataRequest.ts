@@ -1,4 +1,4 @@
-// ResumeRequest.ts
+// BiodataRequest.ts
 import { supabase } from "./Supabase";
 import { FlowType } from "../data/flowtype";
 
@@ -7,7 +7,7 @@ interface Status {
   created: string;
 }
 
-interface ResumeRequest {
+interface BiodataRequest {
   id?: number;
   created_at?: string;
   request_number: string;
@@ -16,7 +16,7 @@ interface ResumeRequest {
   user_details: Record<string, unknown>;
   model_details: Record<string, unknown>;
   profile_url?: string;
-  resume_url?: string;
+  biodata_url?: string;
   personal_details?: Record<string, unknown>;
   traditional_details?: Record<string, unknown>;
   examination_details?: Record<string, unknown>;
@@ -27,18 +27,18 @@ interface ResumeRequest {
   deleted?: boolean;
 }
 
-interface WhatsappResumeRequest {
+interface WhatsappBiodataRequest {
   requestNumber: string;
   userDetails: Record<string, unknown>;
   modelDetails: Record<string, unknown>;
 }
 
-interface UploadResumeRequest extends WhatsappResumeRequest {
+interface UploadBiodataRequest extends WhatsappBiodataRequest {
   profileUrl: string;
-  resumeUrl: string;
+  biodataUrl: string;
 }
 
-interface CreateResumeRequest extends UploadResumeRequest {
+interface CreateBiodataRequest extends UploadBiodataRequest {
   personalDetails: Record<string, unknown>;
   traditionalDetails: Record<string, unknown>;
   examinationDetails: Record<string, unknown>;
@@ -47,13 +47,13 @@ interface CreateResumeRequest extends UploadResumeRequest {
   contactDetails: Record<string, unknown>;
 }
 
-const resumeRequestTableName = "resume_request";
+const biodataRequestTableName = "biodata_request";
 
-export const ResumeRequestStorage = {
-  async getAllResumeRequest(): Promise<ResumeRequest[]> {
+export const BiodataRequestStorage = {
+  async getAllBiodataRequest(): Promise<BiodataRequest[]> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select(`
           id,
           created_at,
@@ -63,7 +63,7 @@ export const ResumeRequestStorage = {
           user_details,
           model_details,
           profile_url,
-          resume_url,
+          biodata_url,
           personal_details,
           traditional_details,
           examination_details,
@@ -76,17 +76,17 @@ export const ResumeRequestStorage = {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      return data as ResumeRequest[];
+      return data as BiodataRequest[];
     } catch (error) {
-      console.error("Error getAllResumeRequest:", error);
+      console.error("Error getAllBiodataRequest:", error);
       throw error;
     }
   },
 
-  async getAllResumeRequestWithoutAnyFilters(): Promise<ResumeRequest[]> {
+  async getAllBiodataRequestWithoutAnyFilters(): Promise<BiodataRequest[]> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select(`
           id,
           created_at,
@@ -96,7 +96,7 @@ export const ResumeRequestStorage = {
           user_details,
           model_details,
           profile_url,
-          resume_url,
+          biodata_url,
           personal_details,
           traditional_details,
           examination_details,
@@ -108,21 +108,21 @@ export const ResumeRequestStorage = {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      return data as ResumeRequest[];
+      return data as BiodataRequest[];
     } catch (error) {
-      console.error("Error getAllResumeRequestWithoutAnyFilters:", error);
+      console.error("Error getAllBiodataRequestWithoutAnyFilters:", error);
       throw error;
     }
   },
 
-  async saveResumeRequestFromWhatsapp(
-    resumeRequest: WhatsappResumeRequest
-  ): Promise<ResumeRequest> {
+  async saveBiodataRequestFromWhatsapp(
+    biodataRequest: WhatsappBiodataRequest
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .insert({
-          request_number: resumeRequest.requestNumber,
+          request_number: biodataRequest.requestNumber,
           flow_type: FlowType.FLOW_WHATSAPP,
           status: [
             {
@@ -130,28 +130,28 @@ export const ResumeRequestStorage = {
               created: new Date().toISOString(),
             },
           ],
-          user_details: resumeRequest.userDetails,
-          model_details: resumeRequest.modelDetails,
+          user_details: biodataRequest.userDetails,
+          model_details: biodataRequest.modelDetails,
         })
         .select("*")
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error saveResumeRequestFromWhatsapp:", error);
+      console.error("Error saveBiodataRequestFromWhatsapp:", error);
       throw error;
     }
   },
 
-  async saveResumeRequestFromUploadResume(
-    resumeRequest: UploadResumeRequest
-  ): Promise<ResumeRequest> {
+  async saveBiodataRequestFromUploadBiodata(
+    biodataRequest: UploadBiodataRequest
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .insert({
-          request_number: resumeRequest.requestNumber,
+          request_number: biodataRequest.requestNumber,
           status: [
             {
               id: 0,
@@ -159,30 +159,30 @@ export const ResumeRequestStorage = {
             },
           ],
           flow_type: FlowType.FLOW_UPLOAD_BIODATA,
-          user_details: resumeRequest.userDetails,
-          model_details: resumeRequest.modelDetails,
-          profile_url: resumeRequest.profileUrl,
-          resume_url: resumeRequest.resumeUrl,
+          user_details: biodataRequest.userDetails,
+          model_details: biodataRequest.modelDetails,
+          profile_url: biodataRequest.profileUrl,
+          biodata_url: biodataRequest.biodataUrl,
         })
         .select("*")
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error saveResumeRequestFromUploadResume:", error);
+      console.error("Error saveBiodataRequestFromUploadBiodata:", error);
       throw error;
     }
   },
 
-  async saveResumeRequestFromCreateResume(
-    resumeRequest: CreateResumeRequest
-  ): Promise<ResumeRequest> {
+  async saveBiodataRequestFromCreateBiodata(
+    biodataRequest: CreateBiodataRequest
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .insert({
-          request_number: resumeRequest.requestNumber,
+          request_number: biodataRequest.requestNumber,
           status: [
             {
               id: 0,
@@ -190,55 +190,55 @@ export const ResumeRequestStorage = {
             },
           ],
           flow_type: FlowType.FLOW_CREATE_BIODATA,
-          user_details: resumeRequest.userDetails,
-          model_details: resumeRequest.modelDetails,
-          profile_url: resumeRequest.profileUrl,
-          personal_details: resumeRequest.personalDetails,
-          traditional_details: resumeRequest.traditionalDetails,
-          examination_details: resumeRequest.examinationDetails,
-          education_details: resumeRequest.educationDetails,
-          family_details: resumeRequest.familyDetails,
-          contact_details: resumeRequest.contactDetails,
+          user_details: biodataRequest.userDetails,
+          model_details: biodataRequest.modelDetails,
+          profile_url: biodataRequest.profileUrl,
+          personal_details: biodataRequest.personalDetails,
+          traditional_details: biodataRequest.traditionalDetails,
+          examination_details: biodataRequest.examinationDetails,
+          education_details: biodataRequest.educationDetails,
+          family_details: biodataRequest.familyDetails,
+          contact_details: biodataRequest.contactDetails,
         })
         .select("*")
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error saveResumeRequestFromCreateResume:", error);
+      console.error("Error saveBiodataRequestFromCreateBiodata:", error);
       throw error;
     }
   },
 
-  async updateStatusResumeRequestById(
+  async updateStatusBiodataRequestById(
     requestId: number,
     status: Status[]
-  ): Promise<ResumeRequest> {
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .update({ status })
         .eq("id", requestId)
         .select("*")
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error updateStatusResumeRequestById:", error);
+      console.error("Error updateStatusBiodataRequestById:", error);
       throw error;
     }
   },
 
-  async updateStatusResumeRequestByRequestNumber(
+  async updateStatusBiodataRequestByRequestNumber(
     requestNumber: string,
     status: Status[],
     completed = false
-  ): Promise<ResumeRequest> {
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .update({
           status,
           completed,
@@ -248,17 +248,17 @@ export const ResumeRequestStorage = {
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error updateStatusResumeRequestByRequestNumber:", error);
+      console.error("Error updateStatusBiodataRequestByRequestNumber:", error);
       throw error;
     }
   },
 
-  async deleteResumeRequestById(requestId: number): Promise<ResumeRequest> {
+  async deleteBiodataRequestById(requestId: number): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .update({
           deleted: true,
         })
@@ -267,37 +267,37 @@ export const ResumeRequestStorage = {
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error deleteResumeRequestById:", error);
+      console.error("Error deleteBiodataRequestById:", error);
       throw error;
     }
   },
 
-  async getResumeRequestByRequestNumber(
+  async getBiodataRequestByRequestNumber(
     requestNumber: string
-  ): Promise<ResumeRequest> {
+  ): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select("*")
         .eq("request_number", requestNumber)
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error getResumeRequestByRequestNumber:", error);
+      console.error("Error getBiodataRequestByRequestNumber:", error);
       throw error;
     }
   },
 
-  async checkResumeRequestByRequestNumber(
+  async checkBiodataRequestByRequestNumber(
     requestNumber: string
-  ): Promise<ResumeRequest | null> {
+  ): Promise<BiodataRequest | null> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select("*")
         .eq("request_number", requestNumber)
         .eq("deleted", false)
@@ -310,30 +310,30 @@ export const ResumeRequestStorage = {
         throw error;
       }
 
-      return data as ResumeRequest | null;
+      return data as BiodataRequest | null;
     } catch (error) {
-      console.error("Error checkResumeRequestByRequestNumber:", error);
+      console.error("Error checkBiodataRequestByRequestNumber:", error);
       throw error;
     }
   },
 
-  async getResumeRequestByRequestId(requestId: number): Promise<ResumeRequest> {
+  async getBiodataRequestByRequestId(requestId: number): Promise<BiodataRequest> {
     try {
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select("*")
         .eq("id", requestId)
         .single();
 
       if (error) throw error;
-      return data as ResumeRequest;
+      return data as BiodataRequest;
     } catch (error) {
-      console.error("Error getResumeRequestByRequestId:", error);
+      console.error("Error getBiodataRequestByRequestId:", error);
       throw error;
     }
   },
 
-  async searchResumeRequests(searchTerm: string): Promise<ResumeRequest[]> {
+  async searchBiodataRequests(searchTerm: string): Promise<BiodataRequest[]> {
     try {
       const numericSearchTerm = parseInt(searchTerm);
 
@@ -348,25 +348,25 @@ export const ResumeRequestStorage = {
       ];
 
       const { data, error } = await supabase
-        .from(resumeRequestTableName)
+        .from(biodataRequestTableName)
         .select("*")
         .eq("deleted", false)
         .in("request_number", searchNumbers)
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      return data as ResumeRequest[];
+      return data as BiodataRequest[];
     } catch (error) {
-      console.error("Error searching resume requests:", error);
+      console.error("Error searching biodata requests:", error);
       throw error;
     }
   },
 };
 
 export type {
-  ResumeRequest,
-  WhatsappResumeRequest,
-  UploadResumeRequest,
-  CreateResumeRequest,
+  BiodataRequest,
+  WhatsappBiodataRequest,
+  UploadBiodataRequest,
+  CreateBiodataRequest,
   Status,
 };

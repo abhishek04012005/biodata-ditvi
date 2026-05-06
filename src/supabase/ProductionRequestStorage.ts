@@ -7,13 +7,13 @@ export interface StyleSettings {
 
 export interface ProductionRequest {
   id?: number;
-  resume_request_id: number;
+  biodata_request_id: number;
   request_number: string;
   flow_type: FlowType;
   user_details: Record<string, unknown>;
   model_details: Record<string, unknown>;
   profile_url?: string;
-  resume_url?: string;
+  biodata_url?: string;
   personal_details?: Record<string, unknown>;
   traditional_details?: Record<string, unknown>;
   examination_details?: Record<string, unknown>;
@@ -27,13 +27,13 @@ export interface ProductionRequest {
 }
 
 export interface SaveProductionRequestParams {
-  resumeRequestId: number;
+  biodataRequestId: number;
   requestNumber: string;
   flowType: FlowType;
   userDetails: Record<string, unknown>;
   modelDetails: Record<string, unknown>;
   profileUrl?: string;
-  resumeUrl?: string;
+  biodataUrl?: string;
   personalDetails?: Record<string, unknown>;
   traditionalDetails?: Record<string, unknown>;
   examinationDetails?: Record<string, unknown>;
@@ -67,13 +67,13 @@ export const ProductionRequestStorage = {
         .from(productionRequestTableName)
         .select(`
           id,
-          resume_request_id,
+          biodata_request_id,
           request_number,
           flow_type,
           user_details,
           model_details,
           profile_url,
-          resume_url,
+          biodata_url,
           personal_details,
           traditional_details,
           examination_details,
@@ -101,11 +101,11 @@ export const ProductionRequestStorage = {
       const { data, error } = await supabase
         .from(productionRequestTableName)
         .insert({
-          resume_request_id: productionRequest.resumeRequestId,
+          biodata_request_id: productionRequest.biodataRequestId,
           request_number: productionRequest.requestNumber,
           flow_type: productionRequest.flowType,
           profile_url: productionRequest.profileUrl,
-          resume_url: productionRequest.resumeUrl,
+          biodata_url: productionRequest.biodataUrl,
           user_details: productionRequest.userDetails,
           model_details: productionRequest.modelDetails,
           personal_details: productionRequest.personalDetails,
@@ -132,13 +132,13 @@ export const ProductionRequestStorage = {
         .from(productionRequestTableName)
         .select(`
           id,
-          resume_request_id,
+          biodata_request_id,
           request_number,
           flow_type,
           user_details,
           model_details,
           profile_url,
-          resume_url,
+          biodata_url,
           personal_details,
           traditional_details,
           examination_details,

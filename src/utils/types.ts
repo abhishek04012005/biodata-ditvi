@@ -5,6 +5,6 @@ export interface ConfirmationDetails {
   type: string;
   name?: string;
   profileUrl?: string;
-  resumeUrl?: string;
+  biodataUrl?: string;
   uploadDate?: string;
 }

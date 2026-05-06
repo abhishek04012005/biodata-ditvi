@@ -29,7 +29,7 @@ export default function ConfirmationPage() {
         type: searchParams.get("service") || searchParams.get("type") || "",
         name: searchParams.get("name") || "",
         profileUrl: searchParams.get("profileUrl") || "",
-        resumeUrl: searchParams.get("resumeUrl") || "",
+        biodataUrl: searchParams.get("biodataUrl") || "",
         uploadDate: searchParams.get("uploadDate") || new Date().toISOString(),
       };
 
@@ -126,7 +126,7 @@ export default function ConfirmationPage() {
 
             <div className={styles.successMessage}>
               <CheckCircle className={styles.icon} />
-              <p>Your resume request has been successfully received</p>
+              <p>Your biodata request has been successfully received</p>
             </div>
 
             <button

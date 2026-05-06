@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import blogPosts from "@/data/blog";
-import resumeList from "@/data/biodata";
+import biodataList from "@/data/biodata";
 import { biodataSeoTargets } from "@/lib/seo";
 import { createSlug } from "@/lib/slug";
 
@@ -14,7 +14,7 @@ const buildUrls = () => {
     `${baseUrl}/confirmation`,
   ];
 
-  const biodataIds = resumeList.map((resume) => `biodata/${resume.slug}`);
+  const biodataIds = biodataList.map((biodata) => `biodata/${biodata.slug}`);
 
   biodataIds.forEach((biodataId) => {
     biodataSeoTargets.forEach((target) => {

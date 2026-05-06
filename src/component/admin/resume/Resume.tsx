@@ -15,9 +15,9 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import {
-  ResumeRequest,
-  ResumeRequestStorage,
-} from "../../../supabase/ResumeRequest";
+  BiodataRequest,
+  BiodataRequestStorage,
+} from "../../../supabase/BiodataRequest";
 import formatDate from "../../../data/formatDate";
 import {
   getLatestStatusId,
@@ -31,13 +31,13 @@ import {
   FlowType,
 } from "../../../data/flowtype";
 import { ProductionRequestStorage } from "../../../supabase/ProductionRequestStorage";
-import styles from "./resume.module.css";
+import styles from "./biodata.module.css";
 import Background from "@/structure/background/Background";
 import { ModelDetails } from "@/structure/chooseoption/ChooseOption";
 
 
 interface UserDetails {
-  resumeFilename: string;
+  biodataFilename: string;
   name?: string;
   mobileNumber?: string;
 }
@@ -49,9 +49,9 @@ interface StatItem {
   color?: string;
 }
 
-const ResumeDashboard: React.FC = () => {
+const BiodataDashboard: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [requests, setRequests] = useState<ResumeRequest[]>([]);
+  const [requests, setRequests] = useState<BiodataRequest[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -62,7 +62,7 @@ const ResumeDashboard: React.FC = () => {
   const fetchRequests = async (): Promise<void> => {
     try {
       setError(null);
-      const response = await ResumeRequestStorage.getAllResumeRequest();
+      const response = await BiodataRequestStorage.getAllBiodataRequest();
       if (response) {
         setRequests(response);
       } else {
@@ -146,17 +146,17 @@ const ResumeDashboard: React.FC = () => {
     }
   };
 
-  const moveToProduction = async (request: ResumeRequest): Promise<void> => {
+  const moveToProduction = async (request: BiodataRequest): Promise<void> => {
     if (!request.id) throw new Error("Request ID is required");
 
     await ProductionRequestStorage.saveProductionRequest({
-      resumeRequestId: request.id,
+      biodataRequestId: request.id,
       requestNumber: request.request_number,
       flowType: request.flow_type as FlowType,
       userDetails: request.user_details,
       modelDetails: request.model_details,
       profileUrl: request.profile_url,
-      resumeUrl: request.resume_url,
+      biodataUrl: request.biodata_url,
       personalDetails: request.personal_details,
       traditionalDetails: request.traditional_details,
       examinationDetails: request.examination_details,
@@ -195,7 +195,7 @@ const ResumeDashboard: React.FC = () => {
         currentStatusArray.pop();
       }
 
-      await ResumeRequestStorage.updateStatusResumeRequestById(
+      await BiodataRequestStorage.updateStatusBiodataRequestById(
         requestId,
         currentStatusArray
       );
@@ -212,7 +212,7 @@ const ResumeDashboard: React.FC = () => {
     try {
       setIsLoading(true);
       setError(null);
-      await ResumeRequestStorage.deleteResumeRequestById(id);
+      await BiodataRequestStorage.deleteBiodataRequestById(id);
       await fetchRequests();
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -287,7 +287,7 @@ const ResumeDashboard: React.FC = () => {
                           </span>
                         </td>
 
-                        <td>{(request.user_details as unknown as UserDetails)?.resumeFilename}</td>
+                        <td>{(request.user_details as unknown as UserDetails)?.biodataFilename}</td>
 
                         <td>
                           {(request.user_details as unknown as UserDetails)?.mobileNumber}
@@ -360,4 +360,4 @@ const ResumeDashboard: React.FC = () => {
   );
 };
 
-export default ResumeDashboard;
+export default BiodataDashboard;

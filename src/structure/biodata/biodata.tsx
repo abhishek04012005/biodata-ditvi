@@ -24,7 +24,7 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-interface ResumeType {
+interface BiodataType {
   id: string | number;
   slug: string;
   name: string;
@@ -33,7 +33,7 @@ interface ResumeType {
 }
 
 interface BioDataCardStructureProps {
-  data: ResumeType;
+  data: BiodataType;
   isHovered: boolean;
   onHover: () => void;
   onLeave: () => void;
@@ -43,7 +43,7 @@ interface BioDataCardStructureProps {
 
 interface BiodataCardProps {
   title: string;
-  resumeDetails: ResumeType[];
+  biodataDetails: BiodataType[];
   subtitle: string;
   isSlider?: boolean;
   showButton?: boolean;
@@ -117,7 +117,7 @@ const BioDataCardStructure: React.FC<BioDataCardStructureProps> = ({
 
 const BiodataCard: React.FC<BiodataCardProps> = ({
   title,
-  resumeDetails,
+  biodataDetails,
   subtitle,
   isSlider = true,
   showButton,
@@ -168,18 +168,18 @@ const BiodataCard: React.FC<BiodataCardProps> = ({
       return (
         <div className={styles.cardsSlider}>
           <Slider {...settings}>
-            {resumeDetails.map((resume) => (
-              <div className={styles.sliderItem} key={resume.id}>
+            {biodataDetails.map((biodata) => (
+              <div className={styles.sliderItem} key={biodata.id}>
                 <BioDataCardStructure
-                  data={resume}
-                  isHovered={hoveredCard === resume.id}
-                  onHover={() => setHoveredCard(resume.id)}
+                  data={biodata}
+                  isHovered={hoveredCard === biodata.id}
+                  onHover={() => setHoveredCard(biodata.id)}
                   onLeave={() => setHoveredCard(null)}
                   onGetNow={() => {
-                    setSelectedModel(resume.slug);
+                    setSelectedModel(biodata.slug);
                     setIsPopupOpen(true);
                   }}
-                  onPreview={() => router.push(`/${resume.slug}`)}
+                  onPreview={() => router.push(`/${biodata.slug}`)}
                 />
               </div>
             ))}
@@ -190,18 +190,18 @@ const BiodataCard: React.FC<BiodataCardProps> = ({
 
     return (
       <div className={styles.cardsGrid}>
-        {resumeDetails.map((resume) => (
+        {biodataDetails.map((biodata) => (
           <BioDataCardStructure
-            key={resume.id}
-            data={resume}
-            isHovered={hoveredCard === resume.id}
-            onHover={() => setHoveredCard(resume.id)}
+            key={biodata.id}
+            data={biodata}
+            isHovered={hoveredCard === biodata.id}
+            onHover={() => setHoveredCard(biodata.id)}
             onLeave={() => setHoveredCard(null)}
             onGetNow={() => {
-              setSelectedModel(resume.slug);
+              setSelectedModel(biodata.slug);
               setIsPopupOpen(true);
             }}
-            onPreview={() => router.push(`${resume.slug}`)}
+            onPreview={() => router.push(`${biodata.slug}`)}
           />
         ))}
       </div>

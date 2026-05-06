@@ -20,9 +20,9 @@ const weWork: WorkStep[] = [
     number: 2,
     title: "Review & Approve",
     steps: [
-      "You will receive customized traditional resume with watermark.",
-      "Review the resume carefully, If you want to make any changes, reply with your feedback.",
-      "Ensure you are satisfied with resume.",
+      "You will receive customized traditional biodata with watermark.",
+      "Review the biodata carefully, If you want to make any changes, reply with your feedback.",
+      "Ensure you are satisfied with biodata.",
     ],
     icon: "✨",
   },
@@ -32,7 +32,7 @@ const weWork: WorkStep[] = [
     steps: [
       `Text us, "I am satisfied".`,
       "We will send you a payment link for remaining 50%.",
-      "After successful payment, you will receive your resume without watermark.",
+      "After successful payment, you will receive your biodata without watermark.",
     ],
     icon: "🚀",
   },

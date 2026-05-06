@@ -1,8 +1,8 @@
 import type { StaticImageData } from "next/image";
-import Resume1111Image from "../assets/biodata/eternaltraditionaldesignbiodata.png";
-import Resume1112Image from "../assets/biodata/richrosedesignbiodata.png";
-import Resume1113Image from "../assets/biodata/sanskritidesignbiodata.png";
-import Resume1114Image from "../assets/biodata/madhubanipaintingdesignbiodata.png";
+import Biodata1111Image from "../assets/biodata/eternaltraditionaldesignbiodata.png";
+import Biodata1112Image from "../assets/biodata/richrosedesignbiodata.png";
+import Biodata1113Image from "../assets/biodata/sanskritidesignbiodata.png";
+import Biodata1114Image from "../assets/biodata/madhubanipaintingdesignbiodata.png";
 
 export type SeoData = {
   title: string;
@@ -19,16 +19,16 @@ export type SeoData = {
 };
 
 export const biodataSeoData: Record<string, SeoData> = {
-  classicResume: {
+  classicBiodata: {
     title: "Classic Biodata Template | Traditional and ATS Friendly",
     description:
       "A polished biodata template built for traditionals seeking a recruiter-friendly presentation with clear achievements and career highlights.",
     keywords: "classic biodata template, traditional biodata, ATS friendly biodata, career biodata",
-    ogImage: Resume1111Image.src,
+    ogImage: Biodata1111Image.src,
     path: "/biodata/classic-biodata/classic-biodata",
     category: "Biodata Template",
     templatePreview: {
-      mainImage: Resume1111Image,
+      mainImage: Biodata1111Image,
     },
     features: [
       "Traditional top-section summary with career objective",
@@ -42,16 +42,16 @@ export const biodataSeoData: Record<string, SeoData> = {
       "Experienced traditionals seeking traditional formatting",
     ],
   },
-  technicalResume: {
+  technicalBiodata: {
     title: "Technical Biodata Template | Structured for Skills and Projects",
     description:
       "A technical biodata design that highlights project work, certifications, and technical skills while keeping the layout easy to scan for hiring managers.",
     keywords: "technical biodata template, engineering biodata, project biodata, technical skills biodata",
-    ogImage: Resume1112Image.src,
+    ogImage: Biodata1112Image.src,
     path: "/biodata/technical-biodata/technical-biodata",
     category: "Biodata Template",
     templatePreview: {
-      mainImage: Resume1112Image,
+      mainImage: Biodata1112Image,
     },
     features: [
       "Project-focused sections with outcome-driven summaries",
@@ -65,16 +65,16 @@ export const biodataSeoData: Record<string, SeoData> = {
       "Telecalling and private-sector sales traditionals",
     ],
   },
-  leadershipResume: {
+  leadershipBiodata: {
     title: "Leadership Biodata Template | Impactful Career Narrative",
     description:
       "A high-impact leadership biodata template that emphasizes career progression, achievement statements, and executive-level credibility.",
     keywords: "leadership biodata template, senior biodata, management biodata, executive biodata",
-    ogImage: Resume1113Image.src,
+    ogImage: Biodata1113Image.src,
     path: "/biodata/leadership-biodata/leadership-biodata",
     category: "Biodata Template",
     templatePreview: {
-      mainImage: Resume1113Image,
+      mainImage: Biodata1113Image,
     },
     features: [
       "Leadership and achievement highlights prominently displayed",
@@ -88,16 +88,16 @@ export const biodataSeoData: Record<string, SeoData> = {
       "Candidates applying for private-sector management roles",
     ],
   },
-  modernResume: {
+  modernBiodata: {
     title: "Modern Biodata Template | Clean and Contemporary Design",
     description:
       "A modern biodata layout designed to keep your profile sharp, readable, and attractive for recruiters in private jobs and technical roles.",
     keywords: "modern biodata template, polished biodata, private sector biodata, clean biodata design",
-    ogImage: Resume1114Image.src,
+    ogImage: Biodata1114Image.src,
     path: "/biodata/modern-biodata/modern-biodata",
     category: "Biodata Template",
     templatePreview: {
-      mainImage: Resume1114Image,
+      mainImage: Biodata1114Image,
     },
     features: [
       "Modern layout with smart section spacing",
@@ -108,7 +108,7 @@ export const biodataSeoData: Record<string, SeoData> = {
     targetAudience: [
       "Telecalling and customer-facing traditionals",
       "Engineering candidates in private companies",
-      "Applicants seeking modern, polished resumes",
+      "Applicants seeking modern, polished biodatas",
     ],
   },
 };

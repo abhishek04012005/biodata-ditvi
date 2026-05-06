@@ -7,7 +7,7 @@ import { WhatsApp, Upload } from "@mui/icons-material";
 import Image from "next/image";
 import Container from "../container/Container";
 import styles from "./chooseoption.module.css";
-import chooseOptionImage from "../../assets/carousel/resume-1114.png";
+import chooseOptionImage from "../../assets/carousel/biodata-1114.png";
 import Background from "../background/Background";
 import Heading from "../heading/Heading";
 
@@ -87,7 +87,7 @@ Model Number: ${modelDetails?.modelNumber || ""}`;
     }
   };
 
-  const handleUploadResume = () => {
+  const handleUploadBiodata = () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     // Prioritize props over URL parameters
@@ -117,7 +117,7 @@ Model Number: ${modelDetails?.modelNumber || ""}`;
       );
     }
 
-    router.push(`/upload-resume?${params.toString()}`);
+    router.push(`/upload-biodata?${params.toString()}`);
   };
 
   return (
