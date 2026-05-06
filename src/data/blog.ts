@@ -291,7 +291,7 @@ const blogPosts: BlogPost[] = [
   `,
     excerpt:
       "Complete guide to creating a perfect marriage biodata with structure, design tips, and expert advice to get better matrimony responses.",
-    image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=90",
+    image: "https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Abhishek",
     date: new Date().toLocaleDateString("en-US", {
       year: "numeric",
@@ -314,7 +314,7 @@ const blogPosts: BlogPost[] = [
         "Learn how to create a perfect marriage biodata with detailed sections, tips, and examples to increase matrimony responses.",
       keywords:
         "marriage biodata format, matrimony biodata tips, biodata for bride, biodata for groom, shaadi biodata",
-      ogImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=90",
+      ogImage: "https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       schema: {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -491,7 +491,7 @@ const blogPosts: BlogPost[] = [
   `,
     excerpt:
       "Ultimate guide to creating a perfect marriage biodata with structure, writing tips, design ideas, and expert strategies for better matches.",
-    image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=90",
+    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Abhishek",
     date: new Date().toLocaleDateString("en-US", {
       year: "numeric",
@@ -514,7 +514,7 @@ const blogPosts: BlogPost[] = [
         "Learn how to create a perfect marriage biodata with complete structure, design tips, and expert advice for better matrimony matches.",
       keywords:
         "marriage biodata format, matrimony biodata, biodata tips, shaadi biodata, groom biodata",
-      ogImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=90",
+      ogImage: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       schema: {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -2297,7 +2297,7 @@ const blogPosts: BlogPost[] = [
   `,
     excerpt:
       "Step-by-step guide for beginners to create their first marriage biodata with simple format and tips.",
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=90",
+    image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Abhishek",
     date: new Date().toLocaleDateString("en-US", {
       year: "numeric",
@@ -2321,7 +2321,7 @@ const blogPosts: BlogPost[] = [
         "Learn how to create your first marriage biodata with simple steps, examples, and tips for better matrimony results.",
       keywords:
         "marriage biodata for beginners, first biodata format, matrimony biodata guide, shaadi biodata",
-      ogImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=90",
+      ogImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       schema: {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
