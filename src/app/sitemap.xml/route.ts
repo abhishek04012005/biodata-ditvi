@@ -4,7 +4,7 @@ import resumeList from "@/data/biodata";
 import { biodataSeoTargets } from "@/lib/seo";
 import { createSlug } from "@/lib/slug";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://biodata.ditvi.org";
+const baseUrl = "https://biodata.ditvi.org";
 
 const buildUrls = () => {
   const urls = [
