@@ -206,7 +206,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    // google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: "U61z9WvB238RUEavCgIuOpCpDLFPVOMv2i-Ax3ACxPI",
   },
 
   icons: {
